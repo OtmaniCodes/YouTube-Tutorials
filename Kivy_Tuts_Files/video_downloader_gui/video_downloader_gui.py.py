@@ -81,10 +81,19 @@ class MyApp(App):
         # kivymd.toast("video is downloading...", 1)
 
     def download_video(self, url):
-        yt = pytube.YouTube(url)
-        self.set_assets(yt.thumbnail_url, yt.title)
-        self.image_loaded = True
-        Clock.schedule_once(lambda x: self.get_video(yt.streams.first()), 4)
+        try:
+            yt = pytube.YouTube(url, on_progress_callback=self.progress_func)
+            self.set_assets(yt.thumbnail_url, yt.title)
+            self.image_loaded = True
+            Clock.schedule_once(lambda x: self.get_video(yt.streams.first()), 4)
+        except:
+            print("error")
+
+    def progress_func(self, stream, chunck, file_handle, bytes_remaining):
+        size = self.video.filesize
+        progress = (float(abs(bytes_remaining-size)/size)*float(100))
+        print(progress)
+        pass
 
 
 if __name__ == "__main__":
