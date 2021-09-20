@@ -1,0 +1,8 @@
+Country :  ISO code
+=================== 
+English :  'en'
+Arabic  :  'ar'
+German  :  'de'
+Greek   :  'el'
+Korean  :  'ko'
+Indonesian : 'id'
