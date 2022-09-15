@@ -1,0 +1,41 @@
+<CtrlBtn@Button>
+	size_hint: [None, None]
+	size: ['50dp', '50dp']
+
+CarGame:
+	Image:
+		source: 'sidewalk.jpg'
+		allow_stretch: True
+		keep_ratio: False
+
+	CtrlBtn:
+		text: "L"
+		pos_hint: {'x': 0.05, 'y': 0.03}
+		on_press: root.go_left()
+
+	CtrlBtn:
+		text: "R"
+		pos_hint: {'x': 0.15, 'y': 0.03}
+		on_press: root.go_right()
+
+	CtrlBtn:
+		text: "U"
+		pos_hint: {'x': 0.25, 'y': 0.03}
+		on_press: root.go_up()
+
+	CtrlBtn:
+		text: "D"
+		pos_hint: {'x': 0.35, 'y': 0.03}
+		on_press: root.go_down()
+
+	CtrlBtn:
+		text: "Speed Up"
+		size: ['100dp', '20dp']
+		pos_hint: {'x': 0.85, 'y': 0.01}
+		on_press: root.speed_up()
+
+	CtrlBtn:
+		text: "Speed Down"
+		size: ['100dp', '20dp']
+		pos_hint: {'x': 0.85, 'y': 0.05}
+		on_press: root.speed_down()
