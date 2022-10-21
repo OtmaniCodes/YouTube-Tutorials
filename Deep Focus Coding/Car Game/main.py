@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.graphics.vertex_instructions import Rectangle
+# from kivy.graphics.context import Color 
 from kivy.core.window import Window
 from kivy.metrics import dp
 
@@ -18,7 +19,6 @@ class CarGame(FloatLayout):
 
 	def go_left(self):
 		x, y = self.car.pos
-
 		if x > 0:
 			x -= dp(self.speed_factor)
 			self.car.pos = [x, y]
@@ -52,6 +52,12 @@ class CarGame(FloatLayout):
 	def speed_down(self):
 		if self.speed_factor > 5:
 			self.speed_factor -= 5
+
+       # def generate_obstacles(self):
+        #        pass
+            # with self.canvas:
+            #    self.obstacle = Rectangle(pos={"x":0.1, "top":0.6}, size=[100,100], color: )
+
 
 
 class MainApp(App):
